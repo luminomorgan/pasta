@@ -11,7 +11,7 @@ def stiltsquery(tapurl, adqlquery, out='tmp'):
 
 tapurl = 'tapurl=http://TAPVizieR.u-strasbg.fr/TAPVizieR/tap/'
 
-adqlquery = 'SELECT "III/281/gbs".StarID4 as source_id,  "III/281/gbs".RAJ2000,  "III/281/gbs".DEJ2000,  "III/281/gbs".Teff,  "III/281/gbs".logg,  "III/281/gbs"."[Fe/H]", "III/281/gbs".SimbadName FROM "III/281/gbs"'
+adqlquery = 'SELECT "III/281/gbs".StarID4 as id,  "III/281/gbs".RAJ2000 as RA,  "III/281/gbs".DEJ2000 as dec,  "III/281/gbs".Teff,  "III/281/gbs".logg,  "III/281/gbs"."[Fe/H]", "III/281/gbs".SimbadName, "I/345/gaia2".phot_g_mean_mag as Gmag FROM "III/281/gbs" JOIN "I/345/gaia2" ON "III/281/gbs".StarID4 = "I/345/gaia2".source_id'
 
 stiltsquery(tapurl,adqlquery, 'benchmark')
 
