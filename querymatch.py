@@ -6,7 +6,15 @@ def stiltsquery(tapurl, adqlquery, out='tmp'):
     stiltsCommand = 'stilts tapquery '+tapurl+" adql='"+adqlquery+"' out="+out+'.fits'
     print(stiltsCommand)
     os.system(stiltsCommand)
-    
+
+### Gaia Benchmark queries via VizieR
+
+tapurl = 'tapurl=http://TAPVizieR.u-strasbg.fr/TAPVizieR/tap/'
+
+adqlquery = 'SELECT "III/281/gbs".StarID4 as source_id,  "III/281/gbs".RAJ2000,  "III/281/gbs".DEJ2000,  "III/281/gbs".Teff,  "III/281/gbs".logg,  "III/281/gbs"."[Fe/H]", "III/281/gbs".SimbadName FROM "III/281/gbs"'
+
+stiltsquery(tapurl,adqlquery, 'benchmark')
+
 ### Gaia-ESO queries via Gaia-ESO 
 '''
 
